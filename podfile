@@ -1,0 +1,7 @@
+platform :ios, '9.0'
+target 'PhotoMarker' do
+use_frameworks!
+
+pod 'SnapKit'
+pod 'MBProgressHUD'
+end
