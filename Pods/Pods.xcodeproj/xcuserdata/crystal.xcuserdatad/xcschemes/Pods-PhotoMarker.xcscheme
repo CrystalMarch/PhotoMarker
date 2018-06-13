@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "71FCBA0D8ABB65DD0507CBB089DEB76F"
+               BlueprintIdentifier = "E019ACF1246771F47C8B0ABFEC9EB18B"
                BuildableName = "Pods_PhotoMarker.framework"
                BlueprintName = "Pods-PhotoMarker"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "71FCBA0D8ABB65DD0507CBB089DEB76F"
+            BlueprintIdentifier = "E019ACF1246771F47C8B0ABFEC9EB18B"
             BuildableName = "Pods_PhotoMarker.framework"
             BlueprintName = "Pods-PhotoMarker"
             ReferencedContainer = "container:Pods.xcodeproj">

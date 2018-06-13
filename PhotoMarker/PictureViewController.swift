@@ -8,10 +8,14 @@
 
 import UIKit
 import MBProgressHUD
-class PictureViewController: UIViewController {
+import EFColorPicker
+
+class PictureViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPopoverPresentationControllerDelegate,EFColorSelectionViewControllerDelegate {
     var SCALE_MAX:CGFloat = 3
     var SCALE_MIN:CGFloat = 1
     var imageView:DrawImageView!
+    var editBar:EditBarView!
+    var chosedFlagString:String! = "1"
     
     var lastScale:CGFloat = 1
     var addNodeAlert : UIAlertController!
@@ -27,7 +31,6 @@ class PictureViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.isUserInteractionEnabled = true
-        
         imageName = "picture"//之后这个值应该从别的controller中传过来
         
         let image = UIImage(named: imageName)!
@@ -36,6 +39,7 @@ class PictureViewController: UIViewController {
         self.view.addSubview(imageView)
         initImageView()
         initAlertView()
+        initEditBar()
         
         let pinch = UIPinchGestureRecognizer.init(target: self, action: #selector(self.onPinch(sender:)))
         imageView.addGestureRecognizer(pinch)
@@ -115,7 +119,7 @@ class PictureViewController: UIViewController {
         if isUpdateState {
             
             if isContain {
-                showUpdateFailView(text: "该位置已被占用，请重新选择")
+                showProgressHUD(text: "该位置已被占用，请重新选择",view: self.view)
             }else{
                 isUpdateState = false
                 imageView.updatePoint(tapPoint!, newPoint)
@@ -132,16 +136,7 @@ class PictureViewController: UIViewController {
         }
         
     }
-    func showUpdateFailView(text: String){
     
-        let mbProgressHUD = MBProgressHUD.showAdded(to: self.view, animated: true)
-        mbProgressHUD.isSquare = false
-        mbProgressHUD.label.text = text
-        mbProgressHUD.label.numberOfLines = 0
-        mbProgressHUD.label.textColor = UIColor.black
-        mbProgressHUD.mode = .customView
-        mbProgressHUD.hide(animated: true, afterDelay: 1)
-    }
     func initAlertView() {
         addNodeAlert = UIAlertController.init(title: "采集点名称", message: nil, preferredStyle: UIAlertControllerStyle.alert)
         addNodeAlert.addTextField { (textField) in
@@ -153,7 +148,7 @@ class PictureViewController: UIViewController {
         addNodeAlert.addAction(cancelAction)
         let addAction = UIAlertAction.init(title: "添加", style: UIAlertActionStyle.default) { (addAction) in
             print("tap point : \(self.tapPoint!)")
-            self.imageView.drawPoint(self.tapPoint!, self.addNodeAlert.textFields!.first!.text!)
+            self.imageView.drawPoint(self.tapPoint!, self.addNodeAlert.textFields!.first!.text!,self.chosedFlagString)
             
         }
         addNodeAlert.addAction(addAction)
@@ -240,6 +235,94 @@ class PictureViewController: UIViewController {
             self.tapPoints = points
         }
     }
+    func initEditBar() {
+        editBar = EditBarView()
+        self.view.addSubview(editBar)
+        editBar.snp.makeConstraints { (make) in
+            make.bottom.equalTo(self.view.snp.bottom)
+            make.left.equalTo(self.view.snp.left)
+            make.right.equalTo(self.view.snp.right)
+            make.height.equalTo(64)
+        }
+        editBar.selectImageCallBack = { () -> Void in
+            self.selectImage()
+        }
+        editBar.saveImageCallBack = {() -> Void in
+            self.imageView.saveEditImage()
+        }
+        editBar.changeTextColorCallBack = { () -> Void in
+            let colorSelectionController = EFColorSelectionViewController()
+            let navCtrl = UINavigationController(rootViewController: colorSelectionController)
+            navCtrl.navigationBar.backgroundColor = UIColor.white
+            navCtrl.navigationBar.isTranslucent = false
+            navCtrl.modalPresentationStyle = UIModalPresentationStyle.popover
+            navCtrl.popoverPresentationController?.delegate = self
+            navCtrl.popoverPresentationController?.sourceView = self.editBar
+            navCtrl.popoverPresentationController?.sourceRect = self.editBar.bounds
+            navCtrl.preferredContentSize = colorSelectionController.view.systemLayoutSizeFitting(
+                UILayoutFittingCompressedSize
+            )
+            
+            colorSelectionController.delegate = self
+            colorSelectionController.color = self.view.backgroundColor ?? UIColor.white
+            
+            if UIUserInterfaceSizeClass.compact == self.traitCollection.horizontalSizeClass {
+                let doneBtn: UIBarButtonItem = UIBarButtonItem(
+                    title: NSLocalizedString("Done", comment: ""),
+                    style: UIBarButtonItemStyle.done,
+                    target: self,
+                    action: #selector(self.ef_dismissViewController(sender:))
+                )
+                colorSelectionController.navigationItem.rightBarButtonItem = doneBtn
+            }
+            self.present(navCtrl, animated: true, completion: nil)
+        }
+        editBar.changeFlagCallBack = { () -> Void in
+            let iconView = IconSelectView()
+            self.view.addSubview(iconView)
+            iconView.snp.makeConstraints({ (make) in
+                make.center.equalTo(self.view.snp.center)
+                make.height.equalTo(self.view.snp.height).multipliedBy(0.5)
+                make.width.equalTo(self.view.snp.width).multipliedBy(0.6)
+            })
+            iconView.selectedIconCallBack = { (icon) -> Void in
+                self.chosedFlagString = icon
+            }
+        }
+    }
+    // MARK:- EFColorSelectionViewControllerDelegate
+    func colorViewController(colorViewCntroller: EFColorSelectionViewController, didChangeColor color: UIColor) {
+        imageView.changeTextColor(color: color)
+        // TODO: You can do something here when color changed.
+        print("New color: " + color.debugDescription)
+    }
+    // MARK:- Private
+    @objc func ef_dismissViewController(sender: UIBarButtonItem) {
+        self.dismiss(animated: true) {
+            [weak self] in
+            if let _ = self {
+                // TODO: You can do something here when EFColorPicker close.
+                print("EFColorPicker closed.")
+            }
+        }
+    }
+    func selectImage() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            picker.allowsEditing = true
+            self.present(picker, animated: true, completion: nil)
+        }
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print(info)
+        let image = info[UIImagePickerControllerEditedImage] as! UIImage
+        imageView.changeImage(image: image)
+        self.imageWithOrientationChange()
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
     
     // 限制iamgeView中心的位置
     //当图片大于屏幕时,平移图片时防止平移过头

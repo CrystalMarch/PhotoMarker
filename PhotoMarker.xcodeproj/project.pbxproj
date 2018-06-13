@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2E66DA0522F241B9861B5032 /* Pods_PhotoMarker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D71D37D36881683493BDBFD4 /* Pods_PhotoMarker.framework */; };
+		BA3FD7B220D0CE260044925B /* IconSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FD7B120D0CE260044925B /* IconSelectView.swift */; };
+		BA3FD7B520D1090F0044925B /* IconCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FD7B320D1090F0044925B /* IconCellCollectionViewCell.swift */; };
+		BA3FD7B620D1090F0044925B /* IconCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA3FD7B420D1090F0044925B /* IconCellCollectionViewCell.xib */; };
+		BA3FD7B820D128120044925B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FD7B720D128120044925B /* File.swift */; };
 		BAA7673E20CE7EF700BD9C6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA7673D20CE7EF700BD9C6A /* AppDelegate.swift */; };
 		BAA7674020CE7EF700BD9C6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA7673F20CE7EF700BD9C6A /* ViewController.swift */; };
 		BAA7674320CE7EF700BD9C6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAA7674120CE7EF700BD9C6A /* Main.storyboard */; };
@@ -17,6 +21,8 @@
 		BAA7675E20CE7EF800BD9C6A /* PhotoMarkerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA7675D20CE7EF800BD9C6A /* PhotoMarkerUITests.swift */; };
 		BAA7676D20CE7F8E00BD9C6A /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA7676B20CE7F8E00BD9C6A /* PictureViewController.swift */; };
 		BAA7676E20CE7F8E00BD9C6A /* DrawImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA7676C20CE7F8E00BD9C6A /* DrawImageView.swift */; };
+		BAA7677020CF9CE800BD9C6A /* EditBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA7676F20CF9CE800BD9C6A /* EditBarView.swift */; };
+		BAA7678820CFD22700BD9C6A /* GPSMapIcons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAA7678720CFD22700BD9C6A /* GPSMapIcons.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +45,10 @@
 /* Begin PBXFileReference section */
 		92C9CFA1F9BF694B60A319CB /* Pods-PhotoMarker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoMarker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoMarker/Pods-PhotoMarker.release.xcconfig"; sourceTree = "<group>"; };
 		AEF1130D1A686354B681B163 /* Pods-PhotoMarker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoMarker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoMarker/Pods-PhotoMarker.debug.xcconfig"; sourceTree = "<group>"; };
+		BA3FD7B120D0CE260044925B /* IconSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelectView.swift; sourceTree = "<group>"; };
+		BA3FD7B320D1090F0044925B /* IconCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		BA3FD7B420D1090F0044925B /* IconCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconCellCollectionViewCell.xib; sourceTree = "<group>"; };
+		BA3FD7B720D128120044925B /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		BAA7673A20CE7EF700BD9C6A /* PhotoMarker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoMarker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA7673D20CE7EF700BD9C6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAA7673F20CE7EF700BD9C6A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +64,8 @@
 		BAA7675F20CE7EF800BD9C6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAA7676B20CE7F8E00BD9C6A /* PictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 		BAA7676C20CE7F8E00BD9C6A /* DrawImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawImageView.swift; sourceTree = "<group>"; };
+		BAA7676F20CF9CE800BD9C6A /* EditBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBarView.swift; sourceTree = "<group>"; };
+		BAA7678720CFD22700BD9C6A /* GPSMapIcons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GPSMapIcons.bundle; sourceTree = "<group>"; };
 		D71D37D36881683493BDBFD4 /* Pods_PhotoMarker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoMarker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,14 +128,20 @@
 		BAA7673C20CE7EF700BD9C6A /* PhotoMarker */ = {
 			isa = PBXGroup;
 			children = (
+				BAA7678720CFD22700BD9C6A /* GPSMapIcons.bundle */,
 				BAA7673D20CE7EF700BD9C6A /* AppDelegate.swift */,
+				BA3FD7B720D128120044925B /* File.swift */,
 				BAA7673F20CE7EF700BD9C6A /* ViewController.swift */,
 				BAA7676C20CE7F8E00BD9C6A /* DrawImageView.swift */,
+				BAA7676F20CF9CE800BD9C6A /* EditBarView.swift */,
 				BAA7676B20CE7F8E00BD9C6A /* PictureViewController.swift */,
 				BAA7674120CE7EF700BD9C6A /* Main.storyboard */,
 				BAA7674420CE7EF800BD9C6A /* Assets.xcassets */,
 				BAA7674620CE7EF800BD9C6A /* LaunchScreen.storyboard */,
 				BAA7674920CE7EF800BD9C6A /* Info.plist */,
+				BA3FD7B120D0CE260044925B /* IconSelectView.swift */,
+				BA3FD7B320D1090F0044925B /* IconCellCollectionViewCell.swift */,
+				BA3FD7B420D1090F0044925B /* IconCellCollectionViewCell.xib */,
 			);
 			path = PhotoMarker;
 			sourceTree = "<group>";
@@ -261,8 +279,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA3FD7B620D1090F0044925B /* IconCellCollectionViewCell.xib in Resources */,
 				BAA7674820CE7EF800BD9C6A /* LaunchScreen.storyboard in Resources */,
 				BAA7674520CE7EF800BD9C6A /* Assets.xcassets in Resources */,
+				BAA7678820CFD22700BD9C6A /* GPSMapIcons.bundle in Resources */,
 				BAA7674320CE7EF700BD9C6A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,11 +311,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PhotoMarker/Pods-PhotoMarker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EFColorPicker/EFColorPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFColorPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
@@ -330,8 +352,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAA7674020CE7EF700BD9C6A /* ViewController.swift in Sources */,
+				BA3FD7B520D1090F0044925B /* IconCellCollectionViewCell.swift in Sources */,
 				BAA7676D20CE7F8E00BD9C6A /* PictureViewController.swift in Sources */,
 				BAA7676E20CE7F8E00BD9C6A /* DrawImageView.swift in Sources */,
+				BA3FD7B220D0CE260044925B /* IconSelectView.swift in Sources */,
+				BA3FD7B820D128120044925B /* File.swift in Sources */,
+				BAA7677020CF9CE800BD9C6A /* EditBarView.swift in Sources */,
 				BAA7673E20CE7EF700BD9C6A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
