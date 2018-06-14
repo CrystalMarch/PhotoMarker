@@ -88,6 +88,7 @@ class EditBarView: UIView {
             setTitle("保存照片", for: UIControlState.normal)
             addTarget(view, action: #selector(view.saveImageButtonClick(sender:)), for: UIControlEvents.touchUpInside)
             setTitleColor(.green, for: .normal)
+            setTitleColor(.red, for: .highlighted)
             layer.borderWidth = 1
             layer.borderColor = UIColor.green.cgColor
             layer.masksToBounds = true
@@ -98,6 +99,7 @@ class EditBarView: UIView {
         convenience init(view:EditBarView){
             self.init()
             setTitle("字体颜色", for: UIControlState.normal)
+            setTitleColor(.red, for: .highlighted)
             addTarget(view, action: #selector(view.changeTextColorButtonClick(sender:)), for: UIControlEvents.touchUpInside)
             setTitleColor(.green, for: .normal)
             layer.borderWidth = 1
@@ -110,6 +112,7 @@ class EditBarView: UIView {
         convenience init(view:EditBarView){
             self.init()
             setTitle("标注图标", for: UIControlState.normal)
+            setTitleColor(.red, for: .highlighted)
             addTarget(view, action: #selector(view.changeFlagButtonClick(sender:)), for: UIControlEvents.touchUpInside)
             setTitleColor(.green, for: .normal)
             layer.borderWidth = 1
